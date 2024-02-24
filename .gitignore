@@ -35,5 +35,9 @@ yarn-error.log*
 .vercel
 
 # custom
-data
-players
+data/2022
+data/2023
+players/2022
+players/2023
+players/*-good.csv
+
