@@ -186,6 +186,11 @@ body {
   border-top: 10px solid blue;
 }
 
+.player .adp {
+  flex: 0 0 30px;
+  text-align: right;
+}
+
 label {
   font-size: 12px;
   padding: 4px 0;
@@ -249,4 +254,8 @@ label {
   width: 98%;
   height: 200px;
   margin-bottom: 10px;
+}
+
+input[type=search]::-webkit-search-cancel-button {
+  cursor: pointer;
 }

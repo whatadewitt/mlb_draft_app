@@ -40,6 +40,7 @@ const List = ({ position, players, search, playerAction, sort, hide }) => {
       <div className="header">
         <div className="value">Val</div>
         <div className="value adjusted">iVal</div>
+        {/* <div className="adp">ADP</div> */}
         <div className="position">{position}</div>
       </div>
       <div className="players">
@@ -72,6 +73,7 @@ const List = ({ position, players, search, playerAction, sort, hide }) => {
                     : player.iPrice
                 )}
               </div>
+              {/* <div className="cell adp">{Math.round(player.adp)}</div> */}
               <div className="cell name">{player.name}</div>
             </div>
           ))}

@@ -22,6 +22,7 @@ export default function handler(req, res) {
         avoid: player.avoid,
         target: player.target,
         injured: player.injured,
+        customPrice: player.customPrice,
       })
     );
   }

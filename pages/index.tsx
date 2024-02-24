@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { importPlayerData } from "./api/players";
 import { GetStaticProps } from "next";
@@ -22,7 +21,7 @@ const Home = ({ playerData: playerDataProp }) => {
   const [sortBy, setSortBy] = useState(SORT_BY.PRICE);
   const [filter, setFilter] = useState("");
   const [hideFilters, dispatch] = useReducer(filterReducer, initialFilterState); // todo: move search and filter in here
-  const [activePlayer, setActivePlayer] = useState();
+  const [activePlayer, setActivePlayer] = useState<Player>();
 
   const toggleMode = () => {
     return setMode(mode === MODES.DRAFT ? MODES.EDIT : MODES.DRAFT);
@@ -91,7 +90,7 @@ const Home = ({ playerData: playerDataProp }) => {
       <div className="head">
         <input
           className="search"
-          type="text"
+          type="search"
           value={search}
           placeholder="Search..."
           onChange={(e) => setSearch(e.target.value)}
@@ -180,7 +179,6 @@ const Home = ({ playerData: playerDataProp }) => {
               hide={hideFilters}
               playerAction={editPlayer}
               sort={sortBy}
-              filters={hideFilters}
             />
           );
         })}
@@ -204,7 +202,7 @@ const Home = ({ playerData: playerDataProp }) => {
         <input
           type="hidden"
           name="drafted"
-          value={activePlayer ? activePlayer.drafted : ""}
+          value={activePlayer ? activePlayer.drafted.toString() : ""}
         />
       </div>
     </div>
@@ -218,7 +216,6 @@ export const getStaticProps: GetStaticProps = async ({
 }): Promise<{ props: any }> => {
   const playerData = await importPlayerData();
 
-  console.log(playerData);
   return {
     props: { playerData },
   };

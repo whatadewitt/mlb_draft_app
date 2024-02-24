@@ -23,7 +23,7 @@ export function getPlayerNotes(player) {
     const filename = `players/${player.id}.json`;
     if (fs.existsSync(filename)) {
       //file exists
-      let customData = JSON.parse(fs.readFileSync(filename));
+      let customData = JSON.parse(fs.readFileSync(filename).toString());
       return { ...player, ...customData };
     }
   } catch (err) {
